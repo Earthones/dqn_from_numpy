@@ -297,5 +297,5 @@ def test(dir):
 
 
 if __name__ == '__main__':
-    # test("./model_para1.npy")
+    # test("./model_para.npy")
     train()
