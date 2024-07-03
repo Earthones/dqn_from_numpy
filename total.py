@@ -8,7 +8,7 @@ class linear(object):
     def __init__(self, in_features, out_features):
         self.in_features = in_features
         self.out_features = out_features
-        self.w = np.random.normal(0, np.sqrt(2/4) ,(in_features, out_features)) #这两种训练不起来，参数太大！
+        self.w = np.random.normal(0, np.sqrt(2/4) ,(in_features, out_features)) 
         self.b = np.zeros((1, out_features))
 
     def forward(self, x):  # 前向传播
@@ -90,7 +90,7 @@ class model(object):
         backgrad = np.zeros_like(output)
         for i in range(output.shape[0]):
             backgrad[i, b_a[i]] = q[i] - b_r[i] - q_[i] # 只对有用的梯度进行计算
-        backgrad /= output.shape[0]  # 实际是多个的梯度 大小应该是200*2 不知道这里要不要除 output.shape[0]
+        backgrad /= output.shape[0]  # 实际是多个的梯度 大小应该是200*2 不知道这里要不要除 output.shape[0] 感觉不用 因为backgrad是一个二维矩阵 不是一个值。
         self.last_backgrad = backgrad
 
     def backward(self):
